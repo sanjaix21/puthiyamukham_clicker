@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 
 app.use("/puthiyamukham", express.static(path.join(__dirname, "../client/build")));
 
-app.get("/puthiyamukham/*", (req, res) => {
+app.get("/puthiyamukham/:any", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 

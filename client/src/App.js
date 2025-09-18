@@ -146,7 +146,7 @@ function App() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: 'url("clicker_img.png")',
+          backgroundImage: 'url("/clicker_img.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
