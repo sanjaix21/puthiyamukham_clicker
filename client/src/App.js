@@ -117,7 +117,7 @@ function App() {
             fontSize: "1rem",
           }}
         >
-          My Clicks: {localCount.toLocaleString()}
+          Your Puthiyamukham: {localCount.toLocaleString()}
         </div>
         <div
           style={{
@@ -127,7 +127,7 @@ function App() {
             fontSize: "1rem",
           }}
         >
-          All Clicks:{" "}
+          Total Puthiyamukham:{" "}
           {globalCount !== null ? globalCount.toLocaleString() : "Loading..."}
         </div>
       </div>

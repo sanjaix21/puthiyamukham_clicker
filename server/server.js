@@ -1,11 +1,23 @@
 import express from 'express';
 import cors from 'cors';
 import sqlite3 from 'sqlite3';
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 const API_PREFIX = "/puthiyamukham/api";
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use("/puthiyamukham", express.static(path.join(__dirname, "../client/build")));
+
+app.get("/puthiyamukham/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
 
 // Initialize database
 const database = new sqlite3.Database('./GlobalCounter.db');
