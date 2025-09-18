@@ -34,7 +34,7 @@ database.get("SELECT totalCount FROM counter", (error, row) => {
   }
 });
 
-app.get('/', (req, res) => {
+app.get('/health', (req, res) => {
   res.json({ number: 1 });
 });
 
