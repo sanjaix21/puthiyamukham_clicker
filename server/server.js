@@ -5,6 +5,7 @@ import sqlite3 from 'sqlite3';
 const app = express();
 app.use(cors());
 app.use(express.json());
+const API_PREFIX = "/puthiyamukham/api";
 
 // Initialize database
 const database = new sqlite3.Database('./GlobalCounter.db');
@@ -25,14 +26,14 @@ app.get('/', (req, res) => {
   res.json({ number: 1 });
 });
 
-app.get('/api/count', (req, res) => {
+app.get(`${API_PREFIX}/count`, (req, res) => {
   database.get("SELECT totalCount FROM counter", (error, row) => {
     if (error) return res.status(500).json({ error: error.message });
     res.json({ count: row ? row.totalCount : 0 });
   });
 });
 
-app.post('/api/count', (req, res) => {
+app.post(`${API_PREFIX}/count`, (req, res) => {
   const incrementAmount = req.body.count || 0;
   database.run("UPDATE counter SET totalCount = totalCount + ?", [incrementAmount], function(error) {
     if (error) return res.status(500).json({ error: error.message });
